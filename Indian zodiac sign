@@ -1,114 +1,176 @@
 #include <stdio.h>
+#include <string.h>
 
-int menu();
 int year, month, day;
 
-int main() {
-    while (1) {
-        printf("Enter Year (1970-2025): ");
-        scanf("%d", &year);
-        if (year >= 1970 && year <= 2025) {
-            break;
+void indianZodiac(int month, int day) {
+    char *rashi, *lucky_color;
+    int lucky_number;
+
+    if (month == 1) {
+        if (day <= 19) {
+            rashi = "Capricorn";
+            lucky_color = "Dark Blue";
+            lucky_number = 8;
         } else {
-            printf("Invalid year! Please enter a year between 1970 and 2025.\n");
+            rashi = "Aquarius";
+            lucky_color = " Blue";
+            lucky_number = 7;
+        }
+    } else if (month == 2) {
+        if (day <= 18) {
+            rashi = "Aquarius";
+            lucky_color = " Blue";
+            lucky_number = 7;
+        } else {
+            rashi = "Pisces";
+            lucky_color = "Sea Green";
+            lucky_number = 3;
+        }
+    } else if (month == 3) {
+        if (day <= 19) {
+            rashi = "Pisces";
+            lucky_color = "Sea Green";
+            lucky_number = 3;
+        } else {
+            rashi = "Aries";
+            lucky_color = "Red";
+            lucky_number = 9;
+        }
+    } else if (month == 4) {
+        if (day <= 19) {
+            rashi = "Aries";
+            lucky_color = "Red";
+            lucky_number = 9;
+        } else {
+            rashi = "Taurus";
+            lucky_color = "Green";
+            lucky_number = 6;
+        }
+    } else if (month == 5) {
+        if (day <= 20) {
+            rashi = "Taurus";
+            lucky_color = "Green";
+            lucky_number = 6;
+        } else {
+            rashi = "Gemini";
+            lucky_color = "Yellow";
+            lucky_number = 5;
+        }
+    } else if (month == 6) {
+        if (day <= 20) {
+            rashi = "Gemini";
+            lucky_color = "Yellow";
+            lucky_number = 5;
+        } else {
+            rashi = "Cancer";
+            lucky_color = "White";
+            lucky_number = 2;
+        }
+    } else if (month == 7) {
+        if (day <= 22) {
+            rashi = "Cancer";
+            lucky_color = "White";
+            lucky_number = 2;
+        } else {
+            rashi = "Leo";
+            lucky_color = "Orange";
+            lucky_number = 1;
+        }
+    } else if (month == 8) {
+        if (day <= 22) {
+            rashi = "Leo";
+            lucky_color = "Orange";
+            lucky_number = 1;
+        } else {
+            rashi = "Virgo";
+            lucky_color = "Blue";
+            lucky_number = 5;
+        }
+    } else if (month == 9) {
+        if (day <= 22) {
+            rashi = "Virgo";
+            lucky_color = "Blue";
+            lucky_number = 5;
+        } else {
+            rashi = "Libra";
+            lucky_color = "Pink";
+            lucky_number = 6;
+        }
+    } else if (month == 10) {
+        if (day <= 22) {
+            rashi = "Libra";
+            lucky_color = "Pink";
+            lucky_number = 6;
+        } else {
+            rashi = "Scorpio";
+            lucky_color = "Black";
+            lucky_number = 8;
+        }
+    } else if (month == 11) {
+        if (day <= 21) {
+            rashi = "Scorpio";
+            lucky_color = "Black";
+            lucky_number = 8;
+        } else {
+            rashi = "Sagittarius";
+            lucky_color = "Purple";
+            lucky_number = 3;
+        }
+    } else if (month == 12) {
+        if (day <= 21) {
+            rashi = "Sagittarius";
+            lucky_color = "Purple";
+            lucky_number = 3;
+        } else {
+            rashi = "Capricorn";
+            lucky_color = "Dark Blue";
+            lucky_number = 8;
         }
     }
 
-    while (1) {
-        printf("Enter Your Month No. (1-12): ");
-        scanf("%d", &month);
-        if (month >= 1 && month <= 12) {
-            break;
-        } else {
-            printf("Invalid month! Please enter a month between 1 and 12.\n");
-        }
-    }
-
-    while (1) {
-        printf("Enter Day (1-31): ");
-        scanf("%d", &day);
-
-        int valid_day = 0;
-
-        if (month == 1) {
-            if (day >= 1 && day <= 31) valid_day = 1;
-        } else if (month == 2) {
-            if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
-                if (day >= 1 && day <= 29) valid_day = 1;
-            } else {
-                if (day >= 1 && day <= 28) valid_day = 1;
-            }
-        } else if (month == 3) {
-            if (day >= 1 && day <= 31) valid_day = 1;
-        } else if (month == 4) {
-            if (day >= 1 && day <= 30) valid_day = 1;
-        } else if (month == 5) {
-            if (day >= 1 && day <= 31) valid_day = 1;
-        } else if (month == 6) {
-            if (day >= 1 && day <= 30) valid_day = 1;
-        } else if (month == 7) {
-            if (day >= 1 && day <= 31) valid_day = 1;
-        } else if (month == 8) {
-            if (day >= 1 && day <= 31) valid_day = 1;
-        } else if (month == 9) {
-            if (day >= 1 && day <= 30) valid_day = 1;
-        } else if (month == 10) {
-            if (day >= 1 && day <= 31) valid_day = 1;
-        } else if (month == 11) {
-            if (day >= 1 && day <= 30) valid_day = 1;
-        } else if (month == 12) {
-            if (day >= 1 && day <= 31) valid_day = 1;
-        }
-
-        if (valid_day) {
-            break;
-        } else {
-            printf("Invalid day! Please enter a valid day for the selected month.\n");
-        }
-    }
-
-    printf("%d-%d-%d\n", year, month, day);
-    menu();
+    printf("\n--- Indian Zodiac (Rashi) ---\n");
+    printf("Your Rashi: %s\n", rashi);
+    printf("Lucky Color: %s\n", lucky_color);
+    printf("Lucky Number: %d\n", lucky_number);
 }
 
-int menu() {
-    if (month == 3 || month == 4) {
-        if (day <= 19) {
-            printf("You are born under ARIES (Mesha) - Rashi.\n");
-        } else {
-            printf("You are born under TAURUS (Vrishabha) - Rashi.\n");
-        }
-    } else if (month == 5 || month == 6) {
-        if (day <= 20) {
-            printf("You are born under GEMINI (Mithuna) - Rashi.\n");
-        } else {
-            printf("You are born under CANCER (Karkataka) - Rashi.\n");
-        }
-    } else if (month == 7 || month == 8) {
-        if (day <= 22) {
-            printf("You are born under LEO (Simha) - Rashi.\n");
-        } else {
-            printf("You are born under VIRGO (Kanya) - Rashi.\n");
-        }
-    } else if (month == 9 || month == 10) {
-        if (day <= 22) {
-            printf("You are born under LIBRA (Tula) - Rashi.\n");
-        } else {
-            printf("You are born under SCORPIO (Vrishchika) - Rashi.\n");
-        }
-    } else if (month == 11 || month == 12) {
-        if (day <= 21) {
-            printf("You are born under SAGITTARIUS (Dhanu) - Rashi.\n");
-        } else {
-            printf("You are born under CAPRICORN (Makara) - Rashi.\n");
-        }
-    } else if (month == 1 || month == 2) {
-        if (day <= 18) {
-            printf("You are born under AQUARIUS (Kumbha) - Rashi.\n");
-        } else {
-            printf("You are born under PISCES (Meena) - Rashi.\n");
-        }
+void chineseZodiac(int year) {
+    char *chinese_zodiac_sign, *gemstone, *lucky_color;
+    int lucky_number;
+
+    switch (year % 12) {
+        case 0:  chinese_zodiac_sign = "Monkey"; gemstone = "Citrine"; lucky_number = 9; lucky_color = "Yellow"; break;
+        case 1:  chinese_zodiac_sign = "Rooster"; gemstone = "Topaz"; lucky_number = 5; lucky_color = "Gold"; break;
+        case 2:  chinese_zodiac_sign = "Dog"; gemstone = "Jasper"; lucky_number = 3; lucky_color = "Red"; break;
+        case 3:  chinese_zodiac_sign = "Boar"; gemstone = "Amethyst"; lucky_number = 6; lucky_color = "Purple"; break;
+        case 4:  chinese_zodiac_sign = "Rat"; gemstone = "Garnet"; lucky_number = 2; lucky_color = "Green"; break;
+        case 5:  chinese_zodiac_sign = "Ox"; gemstone = "Diamond"; lucky_number = 7; lucky_color = "Blue"; break;
+        case 6:  chinese_zodiac_sign = "Tiger"; gemstone = "Emerald"; lucky_number = 8; lucky_color = "Orange"; break;
+        case 7:  chinese_zodiac_sign = "Rabbit"; gemstone = "Moonstone"; lucky_number = 1; lucky_color = "White"; break;
+        case 8:  chinese_zodiac_sign = "Dragon"; gemstone = "Ruby"; lucky_number = 4; lucky_color = "Red"; break;
+        case 9:  chinese_zodiac_sign = "Snake"; gemstone = "Opal"; lucky_number = 5; lucky_color = "Black"; break;
+        case 10: chinese_zodiac_sign = "Horse"; gemstone = "Peridot"; lucky_number = 9; lucky_color = "Green"; break;
+        case 11: chinese_zodiac_sign = "Goat"; gemstone = "Turquoise"; lucky_number = 7; lucky_color = "Pink"; break;
     }
+
+    printf("\n--- Chinese Zodiac ---\n");
+    printf("Chinese Zodiac Sign: %s\n", chinese_zodiac_sign);
+    printf("Gemstone: %s\n", gemstone);
+    printf("Lucky Number: %d\n", lucky_number);
+    printf("Lucky Color: %s\n", lucky_color);
+}
+
+int main() {
+    printf("Enter your Year of Birth (e.g.2000): ");
+    scanf("%d", &year);
+    printf("Enter your Month of Birth (1-12): ");
+    scanf("%d", &month);
+    printf("Enter your Day of Birth (1-31): ");
+    scanf("%d", &day);
+
+    indianZodiac(month, day);
+    chineseZodiac(year);
 
     return 0;
 }
