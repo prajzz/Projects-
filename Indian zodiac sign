@@ -1,0 +1,114 @@
+#include <stdio.h>
+
+int menu();
+int year, month, day;
+
+int main() {
+    while (1) {
+        printf("Enter Year (1970-2025): ");
+        scanf("%d", &year);
+        if (year >= 1970 && year <= 2025) {
+            break;
+        } else {
+            printf("Invalid year! Please enter a year between 1970 and 2025.\n");
+        }
+    }
+
+    while (1) {
+        printf("Enter Your Month No. (1-12): ");
+        scanf("%d", &month);
+        if (month >= 1 && month <= 12) {
+            break;
+        } else {
+            printf("Invalid month! Please enter a month between 1 and 12.\n");
+        }
+    }
+
+    while (1) {
+        printf("Enter Day (1-31): ");
+        scanf("%d", &day);
+
+        int valid_day = 0;
+
+        if (month == 1) {
+            if (day >= 1 && day <= 31) valid_day = 1;
+        } else if (month == 2) {
+            if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+                if (day >= 1 && day <= 29) valid_day = 1;
+            } else {
+                if (day >= 1 && day <= 28) valid_day = 1;
+            }
+        } else if (month == 3) {
+            if (day >= 1 && day <= 31) valid_day = 1;
+        } else if (month == 4) {
+            if (day >= 1 && day <= 30) valid_day = 1;
+        } else if (month == 5) {
+            if (day >= 1 && day <= 31) valid_day = 1;
+        } else if (month == 6) {
+            if (day >= 1 && day <= 30) valid_day = 1;
+        } else if (month == 7) {
+            if (day >= 1 && day <= 31) valid_day = 1;
+        } else if (month == 8) {
+            if (day >= 1 && day <= 31) valid_day = 1;
+        } else if (month == 9) {
+            if (day >= 1 && day <= 30) valid_day = 1;
+        } else if (month == 10) {
+            if (day >= 1 && day <= 31) valid_day = 1;
+        } else if (month == 11) {
+            if (day >= 1 && day <= 30) valid_day = 1;
+        } else if (month == 12) {
+            if (day >= 1 && day <= 31) valid_day = 1;
+        }
+
+        if (valid_day) {
+            break;
+        } else {
+            printf("Invalid day! Please enter a valid day for the selected month.\n");
+        }
+    }
+
+    printf("%d-%d-%d\n", year, month, day);
+    menu();
+}
+
+int menu() {
+    if (month == 3 || month == 4) {
+        if (day <= 19) {
+            printf("You are born under ARIES (Mesha) - Rashi.\n");
+        } else {
+            printf("You are born under TAURUS (Vrishabha) - Rashi.\n");
+        }
+    } else if (month == 5 || month == 6) {
+        if (day <= 20) {
+            printf("You are born under GEMINI (Mithuna) - Rashi.\n");
+        } else {
+            printf("You are born under CANCER (Karkataka) - Rashi.\n");
+        }
+    } else if (month == 7 || month == 8) {
+        if (day <= 22) {
+            printf("You are born under LEO (Simha) - Rashi.\n");
+        } else {
+            printf("You are born under VIRGO (Kanya) - Rashi.\n");
+        }
+    } else if (month == 9 || month == 10) {
+        if (day <= 22) {
+            printf("You are born under LIBRA (Tula) - Rashi.\n");
+        } else {
+            printf("You are born under SCORPIO (Vrishchika) - Rashi.\n");
+        }
+    } else if (month == 11 || month == 12) {
+        if (day <= 21) {
+            printf("You are born under SAGITTARIUS (Dhanu) - Rashi.\n");
+        } else {
+            printf("You are born under CAPRICORN (Makara) - Rashi.\n");
+        }
+    } else if (month == 1 || month == 2) {
+        if (day <= 18) {
+            printf("You are born under AQUARIUS (Kumbha) - Rashi.\n");
+        } else {
+            printf("You are born under PISCES (Meena) - Rashi.\n");
+        }
+    }
+
+    return 0;
+}
