@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+//this is to find the Indian zodiac sign (Rashi) and Chinese zodiac sign based on the user's birth date.
 int year, month, day;
 
 void indianZodiac(int month, int day) {
@@ -109,7 +109,8 @@ void indianZodiac(int month, int day) {
         }
     } else if (month == 11) {
         if (day <= 21) {
-            rashi = "Scorpio";
+            rashi = "Scorpio";\
+            star="lucky "
             lucky_color = "Black";
             lucky_number = 8;
         } else {
